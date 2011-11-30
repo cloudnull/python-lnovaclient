@@ -21,7 +21,7 @@ Development takes place on GitHub__. Bug reports and patches may be filed there.
 __ https://github.com/rackspace/python-client
 
 This code a fork of `Jacobian's python-cloudservers`__ If you need API support
-for the Rackspace API soley or the BSD license, you should use that repository.
+for the Rackspace API solely or the BSD license, you should use that repository.
 python-client is licensed under the Apache License like the rest of OpenStack.
 
 __ http://github.com/jacobian/python-cloudservers
