@@ -1,6 +1,6 @@
 import StringIO
 
-from lnovaclient.v1_1 import servers
+from novaclient.v1_1 import servers
 from tests.v1_1 import fakes
 from tests import utils
 

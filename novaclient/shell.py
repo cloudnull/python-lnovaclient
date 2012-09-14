@@ -25,10 +25,10 @@ import os
 import prettytable
 import sys
 
-from lnovaclient import exceptions as exc
-from lnovaclient import utils
-from lnovaclient.v1_0 import shell as shell_v1_0
-from lnovaclient.v1_1 import shell as shell_v1_1
+from novaclient import exceptions as exc
+from novaclient import utils
+from novaclient.v1_0 import shell as shell_v1_0
+from novaclient.v1_1 import shell as shell_v1_1
 
 
 def env(e):
@@ -39,9 +39,9 @@ class OpenStackComputeShell(object):
 
     def get_base_parser(self):
         parser = argparse.ArgumentParser(
-            prog='lnova',
+            prog='nova',
             description=__doc__.strip(),
-            epilog='See "lnova help COMMAND" '\
+            epilog='See "nova help COMMAND" '\
                    'for help on a specific command.',
             add_help=False,
             formatter_class=OpenStackHelpFormatter,
@@ -66,6 +66,10 @@ class OpenStackComputeShell(object):
             default=env('NOVA_API_KEY'),
             help='Defaults to env[NOVA_API_KEY].')
 
+        parser.add_argument('--password',
+            default=env('NOVA_PASSWORD'),
+            help='Defaults to env[NOVA_PASSWORD].')
+
         parser.add_argument('--projectid',
             default=env('NOVA_PROJECT_ID'),
             help='Defaults to env[NOVA_PROJECT_ID].')
@@ -77,6 +81,10 @@ class OpenStackComputeShell(object):
         parser.add_argument('--region_name',
             default=env('NOVA_REGION_NAME'),
             help='Defaults to env[NOVA_REGION_NAME].')
+
+        parser.add_argument('--endpoint_name',
+            default=env('NOVA_ENDPOINT_NAME'),
+            help='Defaults to env[NOVA_ENDPOINT_NAME] or "publicURL.')
 
         parser.add_argument('--version',
             default=env('NOVA_VERSION'),
@@ -153,21 +161,29 @@ class OpenStackComputeShell(object):
             self.do_help(args)
             return 0
 
-        user, apikey, projectid, url, region_name, insecure = \
-                args.username, args.apikey, args.projectid, args.url, \
-                args.region_name, args.insecure
+        (user, apikey, password, projectid, url, region_name,
+                endpoint_name, insecure) = (args.username, args.apikey,
+                        args.password, args.projectid, args.url,
+                        args.region_name, args.endpoint_name, args.insecure)
+
+        if not endpoint_name:
+            endpoint_name = 'publicURL'
 
         #FIXME(usrleon): Here should be restrict for project id same as
-        # for username or apikey but for compatibility it is not.
+        # for username or password but for compatibility it is not.
 
         if not user:
             raise exc.CommandError("You must provide a username, either"
                                    "via --username or via "
                                    "env[NOVA_USERNAME]")
-        if not apikey:
-            raise exc.CommandError("You must provide an API key, either"
-                                   "via --apikey or via"
-                                   "env[NOVA_API_KEY]")
+
+        if not password:
+            if not apikey:
+                raise exc.CommandError("You must provide a password, either"
+                        "via --password or via env[NOVA_PASSWORD]")
+            else:
+                password = apikey
+
         if options.version and options.version != '1.0':
             if not projectid:
                 raise exc.CommandError("You must provide an projectid, either"
@@ -179,8 +195,10 @@ class OpenStackComputeShell(object):
                                        "via --url or via"
                                        "env[NOVA_URL")
 
-        self.cs = self.get_api_class(options.version)(user, apikey, projectid,
-                                     url, insecure, region_name=region_name)
+        self.cs = self.get_api_class(options.version)(user, password,
+                                     projectid, url, insecure,
+                                     region_name=region_name,
+                                     endpoint_name=endpoint_name)
 
         try:
             self.cs.authenticate()

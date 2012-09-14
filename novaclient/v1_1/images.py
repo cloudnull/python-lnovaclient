@@ -3,7 +3,7 @@
 Image interface.
 """
 
-from lnovaclient import base
+from novaclient import base
 
 
 class Image(base.Resource):

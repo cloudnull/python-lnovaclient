@@ -13,8 +13,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from lnovaclient import exceptions
-from lnovaclient.v1_1 import quotas
+from novaclient import exceptions
+from novaclient.v1_1 import quotas
 from tests.v1_1 import fakes
 from tests import utils
 

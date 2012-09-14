@@ -1,8 +1,8 @@
 import mock
 
-from lnovaclient import base
-from lnovaclient import exceptions
-from lnovaclient.v1_0 import flavors
+from novaclient import base
+from novaclient import exceptions
+from novaclient.v1_0 import flavors
 from tests.v1_0 import fakes
 from tests import utils
 

@@ -1,8 +1,8 @@
 import httplib2
 import mock
 
-from lnovaclient import client
-from lnovaclient import exceptions
+from novaclient import client
+from novaclient import exceptions
 from tests import utils
 
 
@@ -12,7 +12,7 @@ mock_request = mock.Mock(return_value=(fake_response, fake_body))
 
 
 def get_client():
-    cl = client.HTTPClient("username", "apikey",
+    cl = client.HTTPClient("username", "password",
                            "project_id", "auth_test")
     return cl
 

@@ -6,7 +6,7 @@ wrong the tests might raise AssertionError. I've indicated in comments the
 places where actual behavior differs from the spec.
 """
 
-import lnovaclient.client
+import novaclient.client
 
 
 def assert_has_keys(dict, required=[], optional=[]):

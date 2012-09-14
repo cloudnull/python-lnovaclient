@@ -18,7 +18,7 @@ Keypair interface (1.1 extension).
 """
 import os
 
-from lnovaclient import base
+from novaclient import base
 
 
 class Keypair(base.Resource):

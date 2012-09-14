@@ -1,11 +1,11 @@
-from lnovaclient import client
-from lnovaclient.v1_0 import accounts
-from lnovaclient.v1_0 import backup_schedules
-from lnovaclient.v1_0 import flavors
-from lnovaclient.v1_0 import images
-from lnovaclient.v1_0 import ipgroups
-from lnovaclient.v1_0 import servers
-from lnovaclient.v1_0 import zones
+from novaclient import client
+from novaclient.v1_0 import accounts
+from novaclient.v1_0 import backup_schedules
+from novaclient.v1_0 import flavors
+from novaclient.v1_0 import images
+from novaclient.v1_0 import ipgroups
+from novaclient.v1_0 import servers
+from novaclient.v1_0 import zones
 
 
 class Client(object):
@@ -14,7 +14,7 @@ class Client(object):
 
     Create an instance with your creds::
 
-        >>> client = Client(USERNAME, API_KEY, PROJECT_ID, AUTH_URL)
+        >>> client = Client(USERNAME, PASSWORD, PROJECT_ID, AUTH_URL)
 
     Then call methods on its managers::
 
@@ -26,8 +26,12 @@ class Client(object):
     """
 
     def __init__(self, username, api_key, project_id, auth_url=None,
-                 insecure=False, timeout=None, token=None, region_name=None):
+                 insecure=False, timeout=None, token=None, region_name=None,
+                 endpoint_name='publicURL'):
 
+        # FIXME(comstud): Rename the api_key argument above when we
+        # know it's not being used as keyword argument
+        password = api_key
         self.accounts = accounts.AccountManager(self)
         self.backup_schedules = backup_schedules.BackupScheduleManager(self)
         self.flavors = flavors.FlavorManager(self)
@@ -39,13 +43,14 @@ class Client(object):
         _auth_url = auth_url or 'https://auth.api.rackspacecloud.com/v1.0'
 
         self.client = client.HTTPClient(username,
-                                        api_key,
+                                        password,
                                         project_id,
                                         _auth_url,
                                         insecure=insecure,
                                         timeout=timeout,
                                         token=token,
-                                        region_name=region_name)
+                                        region_name=region_name,
+                                        endpoint_name=endpoint_name)
 
     def authenticate(self):
         """

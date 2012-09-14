@@ -1,5 +1,5 @@
-from lnovaclient import exceptions
-from lnovaclient.v1_1 import flavors
+from novaclient import exceptions
+from novaclient.v1_1 import flavors
 from tests.v1_1 import fakes
 from tests import utils
 

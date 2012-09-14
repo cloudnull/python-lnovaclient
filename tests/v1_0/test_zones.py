@@ -1,7 +1,7 @@
 
 import StringIO
 
-from lnovaclient.v1_0 import zones
+from novaclient.v1_0 import zones
 from tests.v1_0 import fakes
 from tests import utils
 

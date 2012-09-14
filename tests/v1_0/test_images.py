@@ -1,4 +1,4 @@
-from lnovaclient.v1_0 import images
+from novaclient.v1_0 import images
 from tests.v1_0 import fakes
 from tests import utils
 

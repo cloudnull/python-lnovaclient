@@ -16,7 +16,7 @@
 # limitations under the License.
 
 
-import lnovaclient.exceptions
+import novaclient.exceptions
 
 
 class ServiceCatalog(object):
@@ -38,7 +38,7 @@ class ServiceCatalog(object):
             for endpoint in self.catalog['endpoints']:
                 if not filter_value or endpoint[attr] == filter_value:
                     return endpoint[endpoint_type]
-            raise lnovaclient.exceptions.EndpointNotFound()
+            raise novaclient.exceptions.EndpointNotFound()
 
         # We don't always get a service catalog back ...
         if not 'serviceCatalog' in self.catalog['access']:
@@ -56,4 +56,4 @@ class ServiceCatalog(object):
                 if not filter_value or endpoint[attr] == filter_value:
                     return endpoint[endpoint_type]
 
-        raise lnovaclient.exceptions.EndpointNotFound()
+        raise novaclient.exceptions.EndpointNotFound()

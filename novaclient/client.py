@@ -14,7 +14,7 @@ import time
 import urllib
 import urlparse
 
-from lnovaclient import service_catalog
+from novaclient import service_catalog
 
 try:
     import json
@@ -27,7 +27,7 @@ if not hasattr(urlparse, 'parse_qsl'):
     urlparse.parse_qsl = cgi.parse_qsl
 
 
-from lnovaclient import exceptions
+from novaclient import exceptions
 
 
 _logger = logging.getLogger(__name__)
@@ -35,17 +35,19 @@ _logger = logging.getLogger(__name__)
 
 class HTTPClient(httplib2.Http):
 
-    USER_AGENT = 'python-lnovaclient'
+    USER_AGENT = 'python-novaclient'
 
-    def __init__(self, user, apikey, projectid, auth_url, insecure=False,
-                 timeout=None, token=None, region_name=None):
+    def __init__(self, user, password, projectid, auth_url, insecure=False,
+                 timeout=None, token=None, region_name=None,
+                 endpoint_name='publicURL'):
         super(HTTPClient, self).__init__(timeout=timeout)
         self.user = user
-        self.apikey = apikey
+        self.password = password
         self.projectid = projectid
         self.auth_url = auth_url
         self.version = 'v1.0'
         self.region_name = region_name
+        self.endpoint_name = endpoint_name
 
         self.management_url = None
         self.auth_token = None
@@ -155,7 +157,8 @@ class HTTPClient(httplib2.Http):
                     self.auth_token = self.service_catalog.get_token()
                 self.management_url = self.service_catalog.url_for(
                                            attr='region',
-                                           filter_value=self.region_name)
+                                           filter_value=self.region_name,
+                                           endpoint_type=self.endpoint_name)
                 return None
             except KeyError:
                 raise exceptions.AuthorizationFailure()
@@ -226,7 +229,7 @@ class HTTPClient(httplib2.Http):
             try:
                 while auth_url:
                     auth_url = self._v1_auth(auth_url)
-            # In some configurations lnova makes redirection to
+            # In some configurations nova makes redirection to
             # v2.0 keystone endpoint. Also, new location does not contain
             # real endpoint, only hostname and port.
             except exceptions.AuthorizationFailure:
@@ -239,7 +242,7 @@ class HTTPClient(httplib2.Http):
             raise NoTokenLookupException()
 
         headers = {'X-Auth-User': self.user,
-                   'X-Auth-Key': self.apikey}
+                   'X-Auth-Key': self.password}
         if self.projectid:
             headers['X-Auth-Project-Id'] = self.projectid
 
@@ -260,13 +263,22 @@ class HTTPClient(httplib2.Http):
         """Authenticate against a v2.0 auth service."""
         body = {"auth": {
                    "passwordCredentials": {"username": self.user,
-                                           "password": self.apikey}}}
+                                           "password": self.password}}}
 
         if self.projectid:
             body['auth']['tenantName'] = self.projectid
 
         token_url = urlparse.urljoin(url, "tokens")
-        resp, body = self.request(token_url, "POST", body=body)
+
+        # Make sure we follow redirects when trying to reach Keystone
+        tmp_follow_all_redirects = self.follow_all_redirects
+        self.follow_all_redirects = True
+
+        try:
+            resp, body = self.request(token_url, "POST", body=body)
+        finally:
+            self.follow_all_redirects = tmp_follow_all_redirects
+
         return self._extract_service_catalog(url, resp, body)
 
     def _munge_get_url(self, url):

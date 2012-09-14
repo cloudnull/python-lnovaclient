@@ -1,5 +1,5 @@
-from lnovaclient import exceptions
-from lnovaclient import service_catalog
+from novaclient import exceptions
+from novaclient import service_catalog
 from tests import utils
 
 

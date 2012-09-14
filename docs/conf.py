@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# python-lnovaclient documentation build configuration file, created by
+# python-novaclient documentation build configuration file, created by
 # sphinx-quickstart on Sun Dec  6 14:19:25 2009.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -37,7 +37,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'python-lnovaclient'
+project = u'python-novaclient'
 copyright = u'Rackspace, based on work by Jacob Kaplan-Moss'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -158,7 +158,7 @@ html_static_path = ['_static']
 #html_file_suffix = ''
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'python-lnovaclientdoc'
+htmlhelp_basename = 'python-novaclientdoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -172,7 +172,7 @@ htmlhelp_basename = 'python-lnovaclientdoc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'python-lnovaclient.tex', u'python-lnovaclient Documentation',
+  ('index', 'python-novaclient.tex', u'python-novaclient Documentation',
    u'Rackspace - based on work by Jacob Kaplan-Moss', 'manual'),
 ]
 

@@ -2,8 +2,8 @@ import os
 import mock
 import httplib2
 
-from lnovaclient.shell import OpenStackComputeShell
-from lnovaclient import exceptions
+from novaclient.shell import OpenStackComputeShell
+from novaclient import exceptions
 from tests import utils
 
 
@@ -14,7 +14,7 @@ class ShellTest(utils.TestCase):
         global _old_env
         fake_env = {
             'NOVA_USERNAME': 'username',
-            'NOVA_API_KEY': 'password',
+            'NOVA_PASSWORD': 'password',
             'NOVA_PROJECT_ID': 'project_id',
             'NOVA_URL': 'http://no.where',
         }

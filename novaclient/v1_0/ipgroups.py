@@ -3,7 +3,7 @@
 IP Group interface.
 """
 
-from lnovaclient import base
+from novaclient import base
 
 
 class IPGroup(base.Resource):

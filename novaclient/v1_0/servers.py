@@ -21,8 +21,8 @@ Server interface.
 
 import urllib
 
-from lnovaclient import base
-from lnovaclient.v1_0 import base as local_base
+from novaclient import base
+from novaclient.v1_0 import base as local_base
 
 
 REBOOT_SOFT, REBOOT_HARD = 'SOFT', 'HARD'
@@ -242,10 +242,7 @@ class ServerManager(local_base.BootingManagerWithFind):
             if val:
                 qparams[opt] = val
 
-        if qparams:
-          query_string = "?%s" % urllib.urlencode(qparams)
-        else:
-          query_string = ""
+        query_string = "?%s" % urllib.urlencode(qparams) if qparams else ""
 
         detail = ""
         if detailed:

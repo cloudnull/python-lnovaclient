@@ -1,14 +1,14 @@
 import httplib2
 
-from lnovaclient import client as base_client
-from lnovaclient.v1_1 import client
+from novaclient import client as base_client
+from novaclient.v1_1 import client
 from tests import fakes
 
 
 class FakeClient(fakes.FakeClient, client.Client):
 
     def __init__(self, *args, **kwargs):
-        client.Client.__init__(self, 'username', 'apikey',
+        client.Client.__init__(self, 'username', 'password',
                                'project_id', 'auth_url')
         self.client = FakeHTTPClient(**kwargs)
 
@@ -17,7 +17,7 @@ class FakeHTTPClient(base_client.HTTPClient):
 
     def __init__(self, **kwargs):
         self.username = 'username'
-        self.apikey = 'apikey'
+        self.password = 'password'
         self.auth_url = 'auth_url'
         self.callstack = []
 
@@ -324,7 +324,7 @@ class FakeHTTPClient(base_client.HTTPClient):
         ]})
 
     def get_os_floating_ips_1(self, **kw):
-        return (200, {'floating_ip': 
+        return (200, {'floating_ip':
             {'id': 1, 'fixed_ip': '10.0.0.1', 'ip': '11.0.0.1'}
         })
 
@@ -359,7 +359,7 @@ class FakeHTTPClient(base_client.HTTPClient):
             {
                 "id": 743,
                 "name": "My Server Backup",
-                "serverId": 12,
+                "serverId": 1234,
                 "updated": "2010-10-10T12:00:00Z",
                 "created": "2010-08-10T12:00:00Z",
                 "status": "SAVING",

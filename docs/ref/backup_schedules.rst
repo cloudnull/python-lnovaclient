@@ -1,7 +1,7 @@
 Backup schedules
 ================
 
-.. currentmodule:: lnovaclient
+.. currentmodule:: novaclient
 
 Rackspace allows scheduling of weekly and/or daily backups for virtual
 servers. You can access these backup schedules either off the API object as

@@ -1,18 +1,18 @@
-The :mod:`lnovaclient` Python API
+The :mod:`novaclient` Python API
 ==================================
 
-.. module:: lnovaclient
+.. module:: novaclient
    :synopsis: A client for the OpenStack Nova API.
 
-.. currentmodule:: lnovaclient
+.. currentmodule:: novaclient
 
 Usage
 -----
 
 First create an instance of :class:`OpenStack` with your credentials::
 
-    >>> from lnovaclient import OpenStack
-    >>> lnova = OpenStack(USERNAME, API_KEY, AUTH_URL)
+    >>> from novaclient import OpenStack
+    >>> nova = OpenStack(USERNAME, PASSWORD, AUTH_URL)
 
 Then call methods on the :class:`OpenStack` object:
 
@@ -43,10 +43,10 @@ Then call methods on the :class:`OpenStack` object:
 
 For example::
 
-    >>> lnova.servers.list()
+    >>> nova.servers.list()
     [<Server: buildslave-ubuntu-9.10>]
 
-    >>> lnova.flavors.list()
+    >>> nova.flavors.list()
     [<Flavor: 256 server>,
      <Flavor: 512 server>,
      <Flavor: 1GB server>,
@@ -55,8 +55,8 @@ For example::
      <Flavor: 8GB server>,
      <Flavor: 15.5GB server>]
 
-    >>> fl = lnova.flavors.find(ram=512)
-    >>> lnova.servers.create("my-server", flavor=fl)
+    >>> fl = nova.flavors.find(ram=512)
+    >>> nova.servers.create("my-server", flavor=fl)
     <Server: my-server>
 
 For more information, see the reference:

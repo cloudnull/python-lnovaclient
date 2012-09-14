@@ -1,6 +1,6 @@
 
-from lnovaclient import exceptions
-from lnovaclient import utils
+from novaclient import exceptions
+from novaclient import utils
 from tests import utils as test_utils
 
 

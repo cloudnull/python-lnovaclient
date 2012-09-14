@@ -1,4 +1,4 @@
-from lnovaclient.v1_1 import keypairs
+from novaclient.v1_1 import keypairs
 from tests.v1_1 import fakes
 from tests import utils
 

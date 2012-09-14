@@ -17,7 +17,7 @@
 Security group rules interface (1.1 extension).
 """
 
-from lnovaclient import base
+from novaclient import base
 
 
 class SecurityGroupRule(base.Resource):

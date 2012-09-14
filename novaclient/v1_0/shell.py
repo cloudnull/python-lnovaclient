@@ -19,11 +19,11 @@ import getpass
 import os
 import uuid
 
-from lnovaclient import exceptions
-from lnovaclient import utils
-from lnovaclient.v1_0 import client
-from lnovaclient.v1_0 import backup_schedules
-from lnovaclient.v1_0 import servers
+from novaclient import exceptions
+from novaclient import utils
+from novaclient.v1_0 import client
+from novaclient.v1_0 import backup_schedules
+from novaclient.v1_0 import servers
 
 
 CLIENT_CLASS = client.Client
@@ -149,18 +149,18 @@ def _boot(cs, args, reservation_id=None, min_count=None, max_count=None):
      default=None,
      type=int,
      metavar='<flavor>',
-     help="Flavor ID (see 'lnova flavors'). "\
+     help="Flavor ID (see 'nova flavors'). "\
           "Defaults to 256MB RAM instance.")
 @utils.arg('--image',
      default=None,
      type=int,
      metavar='<image>',
-     help="Image ID (see 'lnova images'). "\
+     help="Image ID (see 'nova images'). "\
           "Defaults to Ubuntu 10.04 LTS.")
 @utils.arg('--ipgroup',
      default=None,
      metavar='<group>',
-     help="IP group name or ID (see 'lnova ipgroup-list').")
+     help="IP group name or ID (see 'nova ipgroup-list').")
 @utils.arg('--meta',
      metavar="<key=value>",
      action='append',
@@ -200,18 +200,18 @@ def do_boot(cs, args):
      default=None,
      type=int,
      metavar='<flavor>',
-     help="Flavor ID (see 'lnova flavors'). "\
+     help="Flavor ID (see 'nova flavors'). "\
           "Defaults to 256MB RAM instance.")
 @utils.arg('--image',
      default=None,
      type=int,
      metavar='<image>',
-     help="Image ID (see 'lnova images'). "\
+     help="Image ID (see 'nova images'). "\
           "Defaults to Ubuntu 10.04 LTS.")
 @utils.arg('--ipgroup',
      default=None,
      metavar='<group>',
-     help="IP group name or ID (see 'lnova ipgroup-list').")
+     help="IP group name or ID (see 'nova ipgroup-list').")
 @utils.arg('--meta',
      metavar="<key=value>",
      action='append',
@@ -252,18 +252,18 @@ def do_boot_for_account(cs, args):
      default=None,
      type=int,
      metavar='<flavor>',
-     help="Flavor ID (see 'lnova flavors'). "\
+     help="Flavor ID (see 'nova flavors'). "\
           "Defaults to 256MB RAM instance.")
 @utils.arg('--image',
      default=None,
      type=int,
      metavar='<image>',
-     help="Image ID (see 'lnova images'). "\
+     help="Image ID (see 'nova images'). "\
           "Defaults to Ubuntu 10.04 LTS.")
 @utils.arg('--ipgroup',
      default=None,
      metavar='<group>',
-     help="IP group name or ID (see 'lnova ipgroup-list').")
+     help="IP group name or ID (see 'nova ipgroup-list').")
 @utils.arg('--meta',
      metavar="<key=value>",
      action='append',
@@ -350,7 +350,15 @@ def do_flavor_list(cs, args):
 
 def do_image_list(cs, args):
     """Print a list of available images to boot from."""
-    utils.print_list(cs.images.list(), ['ID', 'Name', 'Status'])
+    server_list = {}
+    for server in cs.servers.list():
+        server_list[server.id] = server.name
+    image_list = cs.images.list()
+    for i in range(len(image_list)):
+        if hasattr(image_list[i], 'serverId'):
+            image_list[i].serverId = server_list[image_list[i].serverId] + \
+            ' (' + str(image_list[i].serverId) + ')'
+    utils.print_list(image_list, ['ID', 'Name', 'serverId','Status'])
 
 
 @utils.arg('server', metavar='<server>', help='Name or ID of server.')
@@ -674,7 +682,8 @@ def do_delete(cs, args):
 @utils.arg('--api_url', dest='api_url', default=None, help='New URL.')
 @utils.arg('--zone_username', dest='zone_username', default=None,
                         help='New zone username.')
-@utils.arg('--password', dest='password', default=None, help='New password.')
+@utils.arg('--zone_password', dest='zone_password', default=None,
+                        help='New password.')
 @utils.arg('--weight_offset', dest='weight_offset', default=None,
                         help='Child Zone weight offset.')
 @utils.arg('--weight_scale', dest='weight_scale', default=None,
@@ -689,8 +698,8 @@ def do_zone(cs, args):
         zone_delta['api_url'] = args.api_url
     if args.zone_username:
         zone_delta['username'] = args.zone_username
-    if args.password:
-        zone_delta['password'] = args.password
+    if args.zone_password:
+        zone_delta['password'] = args.zone_password
     if args.weight_offset:
         zone_delta['weight_offset'] = args.weight_offset
     if args.weight_scale:
@@ -713,7 +722,7 @@ def do_zone_info(cs, args):
 @utils.arg('--zone_username', metavar='<zone_username>',
             help='Optional Authentication username. (Default=None)',
             default=None)
-@utils.arg('--password', metavar='<password>',
+@utils.arg('--zone_password', metavar='<zone_password>',
            help='Authentication password. (Default=None)',
            default=None)
 @utils.arg('--weight_offset', metavar='<weight_offset>',
@@ -725,7 +734,7 @@ def do_zone_info(cs, args):
 def do_zone_add(cs, args):
     """Add a new child zone."""
     zone = cs.zones.create(args.zone_name, args.api_url,
-                           args.zone_username, args.password,
+                           args.zone_username, args.zone_password,
                            args.weight_offset, args.weight_scale)
     utils.print_dict(zone._info)
 
