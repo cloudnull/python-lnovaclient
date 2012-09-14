@@ -17,7 +17,7 @@
 function usage {
     echo "Usage: $0 [OPTION] [nosearg1[=val]] [nosearg2[=val]]..."
     echo 
-    echo "Run python-novaclient test suite"
+    echo "Run python-lnovaclient test suite"
     echo
     echo "  -f, --force             Delete the virtualenv before running tests."
     echo "  -h, --help              Print this usage message"
@@ -97,7 +97,7 @@ function wrapper {
 
 dependencies="httplib2 argparse prettytable simplejson nose mock coverage"
 force=0
-venv=.novaclient-venv
+venv=.lnovaclient-venv
 use_venv=1
 verbose=0
 noseargs=
@@ -110,7 +110,7 @@ done
 NOSETESTS="nosetests ${noseargs}"
 
 if [ $just_pep8 -ne 0 ]; then
-    wrapper "pep8 -r --show-pep8 novaclient tests"
+    wrapper "pep8 -r --show-pep8 lnovaclient tests"
 else
     wrapper $NOSETESTS
 fi
