@@ -14,8 +14,8 @@
 #    under the License.
 
 import copy
-from llnovaclient.keystone import tenants
-from llnovaclient.keystone import users
+from lnovaclient.keystone import tenants
+from lnovaclient.keystone import users
 
 
 class Client(object):
@@ -24,9 +24,9 @@ class Client(object):
 
     Create an instance with your creds::
 
-        >>> from llnovaclient import client
+        >>> from lnovaclient import client
         >>> conn = client.HTTPClient(USER, PASS, TENANT, KEYSTONE_URL)
-        >>> from llnovaclient import keystone
+        >>> from lnovaclient import keystone
         >>> kc = keystone.Client(conn)
 
     Then call methods on its managers::

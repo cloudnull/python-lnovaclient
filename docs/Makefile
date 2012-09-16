@@ -61,15 +61,9 @@ qthelp:
 	@echo
 	@echo "Build finished; now you can run "qcollectiongenerator" with the" \
 	      ".qhcp project file in $(BUILDDIR)/qthelp, like this:"
-<<<<<<< HEAD
-	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/python-llnovaclient.qhcp"
+	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/python-lnovaclient.qhcp"
 	@echo "To view the help file:"
-	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/python-llnovaclient.qhc"
-=======
-	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/python-novaclient.qhcp"
-	@echo "To view the help file:"
-	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/python-novaclient.qhc"
->>>>>>> 2019f5edf36f07152e75717f21875ad0adb0e0d6
+	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/python-lnovaclient.qhc"
 
 latex:
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex

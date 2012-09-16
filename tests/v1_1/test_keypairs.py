@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-from llnovaclient.v1_1 import keypairs
-=======
-from novaclient.v1_1 import keypairs
->>>>>>> 2019f5edf36f07152e75717f21875ad0adb0e0d6
+from lnovaclient.v1_1 import keypairs
 from tests.v1_1 import fakes
 from tests import utils
 

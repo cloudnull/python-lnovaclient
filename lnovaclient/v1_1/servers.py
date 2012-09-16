@@ -21,8 +21,8 @@ Server interface.
 
 import urllib
 
-from llnovaclient import base
-from llnovaclient.v1_1 import base as local_base
+from lnovaclient import base
+from lnovaclient.v1_1 import base as local_base
 
 
 REBOOT_SOFT, REBOOT_HARD = 'SOFT', 'HARD'

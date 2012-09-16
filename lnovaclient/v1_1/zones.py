@@ -17,8 +17,8 @@
 Zone interface.
 """
 
-from llnovaclient import base
-from llnovaclient.v1_1 import base as local_base
+from lnovaclient import base
+from lnovaclient.v1_1 import base as local_base
 
 
 class Weighting(base.Resource):

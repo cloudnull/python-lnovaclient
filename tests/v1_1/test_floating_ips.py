@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-from llnovaclient import exceptions
-from llnovaclient.v1_1 import floating_ips
-=======
-from novaclient import exceptions
-from novaclient.v1_1 import floating_ips
->>>>>>> 2019f5edf36f07152e75717f21875ad0adb0e0d6
+from lnovaclient import exceptions
+from lnovaclient.v1_1 import floating_ips
 from tests.v1_1 import fakes
 from tests import utils
 

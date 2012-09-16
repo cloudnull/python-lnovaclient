@@ -3,7 +3,7 @@
 Flavor interface.
 """
 
-from llnovaclient import base
+from lnovaclient import base
 
 
 class Flavor(base.Resource):

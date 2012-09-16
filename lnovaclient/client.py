@@ -14,7 +14,7 @@ import time
 import urllib
 import urlparse
 
-from llnovaclient import service_catalog
+from lnovaclient import service_catalog
 
 try:
     import json
@@ -27,7 +27,7 @@ if not hasattr(urlparse, 'parse_qsl'):
     urlparse.parse_qsl = cgi.parse_qsl
 
 
-from llnovaclient import exceptions
+from lnovaclient import exceptions
 
 
 _logger = logging.getLogger(__name__)
@@ -35,7 +35,7 @@ _logger = logging.getLogger(__name__)
 
 class HTTPClient(httplib2.Http):
 
-    USER_AGENT = 'python-llnovaclient'
+    USER_AGENT = 'python-lnovaclient'
 
     def __init__(self, user, password, projectid, auth_url, insecure=False,
                  timeout=None, token=None, region_name=None,
@@ -229,7 +229,7 @@ class HTTPClient(httplib2.Http):
             try:
                 while auth_url:
                     auth_url = self._v1_auth(auth_url)
-            # In some configurations llnova makes redirection to
+            # In some configurations lnova makes redirection to
             # v2.0 keystone endpoint. Also, new location does not contain
             # real endpoint, only hostname and port.
             except exceptions.AuthorizationFailure:

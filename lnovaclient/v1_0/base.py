@@ -19,8 +19,8 @@
 Base utilities to build API operation managers and objects on top of.
 """
 
-from llnovaclient import base
-from llnovaclient import exceptions
+from lnovaclient import base
+from lnovaclient import exceptions
 
 
 # Python 2.4 compat

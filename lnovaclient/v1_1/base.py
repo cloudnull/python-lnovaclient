@@ -17,7 +17,7 @@
 
 import base64
 
-from llnovaclient import base
+from lnovaclient import base
 
 
 class BootingManagerWithFind(base.ManagerWithFind):

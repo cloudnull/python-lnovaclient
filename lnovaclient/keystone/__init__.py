@@ -1,1 +1,1 @@
-from llnovaclient.keystone.client import Client
+from lnovaclient.keystone.client import Client

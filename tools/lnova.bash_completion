@@ -1,4 +1,4 @@
-_lllnova()
+_lnova()
 {
     local cur prev opts
     COMPREPLY=()
@@ -15,4 +15,4 @@ _lllnova()
           --username --version"
     COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
 }
-complete -F _lllnova lllnova
+complete -F _lnova lnova

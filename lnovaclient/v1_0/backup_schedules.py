@@ -3,7 +3,7 @@
 Backup Schedule interface.
 """
 
-from llnovaclient import base
+from lnovaclient import base
 
 
 BACKUP_WEEKLY_DISABLED = 'DISABLED'

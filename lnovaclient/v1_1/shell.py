@@ -18,10 +18,10 @@
 import getpass
 import os
 
-from llnovaclient import exceptions
-from llnovaclient import utils
-from llnovaclient.v1_1 import client
-from llnovaclient.v1_1 import servers
+from lnovaclient import exceptions
+from lnovaclient import utils
+from lnovaclient.v1_1 import client
+from lnovaclient.v1_1 import servers
 
 
 CLIENT_CLASS = client.Client
@@ -127,11 +127,11 @@ def _boot(cs, args, reservation_id=None, min_count=None, max_count=None):
 @utils.arg('--flavor',
      default=None,
      metavar='<flavor>',
-     help="Flavor ID (see 'llnova flavor-list').")
+     help="Flavor ID (see 'lnova flavor-list').")
 @utils.arg('--image',
      default=None,
      metavar='<image>',
-     help="Image ID (see 'llnova image-list'). ")
+     help="Image ID (see 'lnova image-list'). ")
 @utils.arg('--meta',
      metavar="<key=value>",
      action='append',
@@ -224,11 +224,11 @@ def do_boot(cs, args):
 @utils.arg('--flavor',
      default=None,
      metavar='<flavor>',
-     help="Flavor ID (see 'llnova flavor-list')")
+     help="Flavor ID (see 'lnova flavor-list')")
 @utils.arg('--image',
      default=None,
      metavar='<image>',
-     help="Image ID (see 'llnova image-list').")
+     help="Image ID (see 'lnova image-list').")
 @utils.arg('--meta',
      metavar="<key=value>",
      action='append',

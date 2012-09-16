@@ -1,10 +1,6 @@
 import StringIO
 
-<<<<<<< HEAD
-from llnovaclient.v1_0 import servers
-=======
-from novaclient.v1_0 import servers
->>>>>>> 2019f5edf36f07152e75717f21875ad0adb0e0d6
+from lnovaclient.v1_0 import servers
 from tests.v1_0 import fakes
 from tests import utils
 

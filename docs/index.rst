@@ -2,19 +2,11 @@ Python bindings to the OpenStack Nova API
 ==================================================
 
 This is a client for OpenStack Nova API. There's :doc:`a Python API
-<<<<<<< HEAD
-<api>` (the :mod:`llnovaclient` module), and a :doc:`command-line script
-<shell>` (installed as :program:`llnova`). Each implements the entire
+<api>` (the :mod:`lnovaclient` module), and a :doc:`command-line script
+<shell>` (installed as :program:`lnova`). Each implements the entire
 OpenStack Nova API.
 
-You'll need an `OpenStack Nova` account, which you can get by using `llnova-manage`.
-=======
-<api>` (the :mod:`novaclient` module), and a :doc:`command-line script
-<shell>` (installed as :program:`nova`). Each implements the entire
-OpenStack Nova API.
-
-You'll need an `OpenStack Nova` account, which you can get by using `nova-manage`.
->>>>>>> 2019f5edf36f07152e75717f21875ad0adb0e0d6
+You'll need an `OpenStack Nova` account, which you can get by using `lnova-manage`.
 
 .. seealso::
 
@@ -40,11 +32,7 @@ Contributing
 
 Development takes place `on GitHub`__; please file bugs/pull requests there.
 
-<<<<<<< HEAD
-__ https://github.com/rackspace/python-llnovaclient
-=======
-__ https://github.com/rackspace/python-novaclient
->>>>>>> 2019f5edf36f07152e75717f21875ad0adb0e0d6
+__ https://github.com/rackspace/python-lnovaclient
 
 Run tests with ``python setup.py test``.
 

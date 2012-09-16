@@ -1,11 +1,11 @@
-from llnovaclient import client
-from llnovaclient.v1_0 import accounts
-from llnovaclient.v1_0 import backup_schedules
-from llnovaclient.v1_0 import flavors
-from llnovaclient.v1_0 import images
-from llnovaclient.v1_0 import ipgroups
-from llnovaclient.v1_0 import servers
-from llnovaclient.v1_0 import zones
+from lnovaclient import client
+from lnovaclient.v1_0 import accounts
+from lnovaclient.v1_0 import backup_schedules
+from lnovaclient.v1_0 import flavors
+from lnovaclient.v1_0 import images
+from lnovaclient.v1_0 import ipgroups
+from lnovaclient.v1_0 import servers
+from lnovaclient.v1_0 import zones
 
 
 class Client(object):

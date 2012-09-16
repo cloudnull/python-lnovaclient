@@ -5,11 +5,7 @@ Release notes
 2.5.8 (July 11, 2011)
 =====================
 * returns all public/private ips, not just first one
-<<<<<<< HEAD
 * better 'lnova list' search options
-=======
-* better 'nova list' search options
->>>>>>> 2019f5edf36f07152e75717f21875ad0adb0e0d6
 
 2.5.7 - 2.5.6 = minor tweaks
 
@@ -52,11 +48,7 @@ Release notes
 2.3 (March 2, 2011)
 =================
 
-<<<<<<< HEAD
 * package renamed to python-lnovaclient. Module to lnovaclient
-=======
-* package renamed to python-novaclient. Module to novaclient
->>>>>>> 2019f5edf36f07152e75717f21875ad0adb0e0d6
 
 
 2.2 (March 1, 2011)
@@ -69,11 +61,7 @@ Release notes
 2.1 (Feb 28, 2011)
 =================
 
-<<<<<<< HEAD
 * shell renamed to lnova from lnovatools
-=======
-* shell renamed to nova from novatools
->>>>>>> 2019f5edf36f07152e75717f21875ad0adb0e0d6
 
 * license changed from BSD to Apache
 
@@ -82,11 +70,7 @@ Release notes
 
 * Forked from https://github.com/jacobian/python-cloudservers
 
-<<<<<<< HEAD
 * Rebranded to python-lnovatools
-=======
-* Rebranded to python-novatools
->>>>>>> 2019f5edf36f07152e75717f21875ad0adb0e0d6
 
 * Auth URL support
 

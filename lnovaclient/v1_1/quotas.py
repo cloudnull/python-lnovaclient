@@ -13,7 +13,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from llnovaclient import base
+from lnovaclient import base
 
 
 class QuotaSet(base.Resource):

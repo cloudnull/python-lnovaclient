@@ -1,15 +1,15 @@
-from llnovaclient import client
-from llnovaclient.v1_1 import flavors
-from llnovaclient.v1_1 import floating_ips
-from llnovaclient.v1_1 import images
-from llnovaclient.v1_1 import keypairs
-from llnovaclient.v1_1 import security_group_rules
-from llnovaclient.v1_1 import security_groups
-from llnovaclient.v1_1 import servers
-from llnovaclient.v1_1 import quotas
-from llnovaclient.v1_1 import volumes
-from llnovaclient.v1_1 import volume_snapshots
-from llnovaclient.v1_1 import zones
+from lnovaclient import client
+from lnovaclient.v1_1 import flavors
+from lnovaclient.v1_1 import floating_ips
+from lnovaclient.v1_1 import images
+from lnovaclient.v1_1 import keypairs
+from lnovaclient.v1_1 import security_group_rules
+from lnovaclient.v1_1 import security_groups
+from lnovaclient.v1_1 import servers
+from lnovaclient.v1_1 import quotas
+from lnovaclient.v1_1 import volumes
+from lnovaclient.v1_1 import volume_snapshots
+from lnovaclient.v1_1 import zones
 
 
 class Client(object):

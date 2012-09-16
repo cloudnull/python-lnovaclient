@@ -1,13 +1,8 @@
 import httplib2
 import mock
 
-<<<<<<< HEAD
-from llnovaclient import client
-from llnovaclient import exceptions
-=======
-from novaclient import client
-from novaclient import exceptions
->>>>>>> 2019f5edf36f07152e75717f21875ad0adb0e0d6
+from lnovaclient import client
+from lnovaclient import exceptions
 from tests import utils
 
 

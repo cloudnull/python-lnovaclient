@@ -16,11 +16,7 @@ Imports
   # vim: tabstop=4 shiftwidth=4 softtabstop=4
   {{stdlib imports in human alphabetical order}}
   \n
-<<<<<<< HEAD
   {{lnova imports in human alphabetical order}}
-=======
-  {{nova imports in human alphabetical order}}
->>>>>>> 2019f5edf36f07152e75717f21875ad0adb0e0d6
   \n
   \n
   {{begin your code}}
@@ -46,19 +42,11 @@ Human Alphabetical Order Examples
   import time
   import unittest
 
-<<<<<<< HEAD
   from lnova import flags
   from lnova import test
   from lnova.auth import users
   from lnova.endpoint import api
   from lnova.endpoint import cloud
-=======
-  from nova import flags
-  from nova import test
-  from nova.auth import users
-  from nova.endpoint import api
-  from nova.endpoint import cloud
->>>>>>> 2019f5edf36f07152e75717f21875ad0adb0e0d6
 
 Docstrings
 ----------

@@ -19,11 +19,11 @@ import getpass
 import os
 import uuid
 
-from llnovaclient import exceptions
-from llnovaclient import utils
-from llnovaclient.v1_0 import client
-from llnovaclient.v1_0 import backup_schedules
-from llnovaclient.v1_0 import servers
+from lnovaclient import exceptions
+from lnovaclient import utils
+from lnovaclient.v1_0 import client
+from lnovaclient.v1_0 import backup_schedules
+from lnovaclient.v1_0 import servers
 
 
 CLIENT_CLASS = client.Client
@@ -149,18 +149,18 @@ def _boot(cs, args, reservation_id=None, min_count=None, max_count=None):
      default=None,
      type=int,
      metavar='<flavor>',
-     help="Flavor ID (see 'llnova flavors'). "\
+     help="Flavor ID (see 'lnova flavors'). "\
           "Defaults to 256MB RAM instance.")
 @utils.arg('--image',
      default=None,
      type=int,
      metavar='<image>',
-     help="Image ID (see 'llnova images'). "\
+     help="Image ID (see 'lnova images'). "\
           "Defaults to Ubuntu 10.04 LTS.")
 @utils.arg('--ipgroup',
      default=None,
      metavar='<group>',
-     help="IP group name or ID (see 'llnova ipgroup-list').")
+     help="IP group name or ID (see 'lnova ipgroup-list').")
 @utils.arg('--meta',
      metavar="<key=value>",
      action='append',
@@ -200,18 +200,18 @@ def do_boot(cs, args):
      default=None,
      type=int,
      metavar='<flavor>',
-     help="Flavor ID (see 'llnova flavors'). "\
+     help="Flavor ID (see 'lnova flavors'). "\
           "Defaults to 256MB RAM instance.")
 @utils.arg('--image',
      default=None,
      type=int,
      metavar='<image>',
-     help="Image ID (see 'llnova images'). "\
+     help="Image ID (see 'lnova images'). "\
           "Defaults to Ubuntu 10.04 LTS.")
 @utils.arg('--ipgroup',
      default=None,
      metavar='<group>',
-     help="IP group name or ID (see 'llnova ipgroup-list').")
+     help="IP group name or ID (see 'lnova ipgroup-list').")
 @utils.arg('--meta',
      metavar="<key=value>",
      action='append',
@@ -252,18 +252,18 @@ def do_boot_for_account(cs, args):
      default=None,
      type=int,
      metavar='<flavor>',
-     help="Flavor ID (see 'llnova flavors'). "\
+     help="Flavor ID (see 'lnova flavors'). "\
           "Defaults to 256MB RAM instance.")
 @utils.arg('--image',
      default=None,
      type=int,
      metavar='<image>',
-     help="Image ID (see 'llnova images'). "\
+     help="Image ID (see 'lnova images'). "\
           "Defaults to Ubuntu 10.04 LTS.")
 @utils.arg('--ipgroup',
      default=None,
      metavar='<group>',
-     help="IP group name or ID (see 'llnova ipgroup-list').")
+     help="IP group name or ID (see 'lnova ipgroup-list').")
 @utils.arg('--meta',
      metavar="<key=value>",
      action='append',

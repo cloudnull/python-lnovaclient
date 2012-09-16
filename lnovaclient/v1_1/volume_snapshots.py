@@ -17,7 +17,7 @@
 Volume snapshot interface (1.1 extension).
 """
 
-from llnovaclient import base
+from lnovaclient import base
 
 
 class Snapshot(base.Resource):
