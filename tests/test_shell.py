@@ -2,8 +2,13 @@ import os
 import mock
 import httplib2
 
+<<<<<<< HEAD
+from llnovaclient.shell import OpenStackComputeShell
+from llnovaclient import exceptions
+=======
 from novaclient.shell import OpenStackComputeShell
 from novaclient import exceptions
+>>>>>>> 2019f5edf36f07152e75717f21875ad0adb0e0d6
 from tests import utils
 
 

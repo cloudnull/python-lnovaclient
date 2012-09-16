@@ -1,7 +1,12 @@
 import httplib2
 
+<<<<<<< HEAD
+from llnovaclient import client as base_client
+from llnovaclient.v1_1 import client
+=======
 from novaclient import client as base_client
 from novaclient.v1_1 import client
+>>>>>>> 2019f5edf36f07152e75717f21875ad0adb0e0d6
 from tests import fakes
 
 

@@ -17,7 +17,11 @@ import setuptools
 import sys
 
 
+<<<<<<< HEAD
+requirements = ["httplib2", "argparse", "prettytable==0.5"]
+=======
 requirements = ["httplib2", "argparse", "prettytable"]
+>>>>>>> 2019f5edf36f07152e75717f21875ad0adb0e0d6
 if sys.version_info < (2, 6):
     requirements.append("simplejson")
 
@@ -27,6 +31,17 @@ def read_file(file_name):
 
 
 setuptools.setup(
+<<<<<<< HEAD
+    name="python-lnovaclient",
+    version="2.6.8",
+    author="Rackspace, Modified by Kevin Carter and based on work by Jacob Kaplan-Moss",
+    author_email="kevin@bkintegration.com",
+    description="Client library for OpenStack Nova API.",
+    long_description=read_file("README.rst"),
+    license="Apache License, Version 2.0",
+    url="https://github.com/cloudnull/python-lnovaclient",
+    packages=["lnovaclient", "lnovaclient.v1_0", "lnovaclient.v1_1"],
+=======
     name="python-novaclient",
     version="2.6.8",
     author="Rackspace, based on work by Jacob Kaplan-Moss",
@@ -36,6 +51,7 @@ setuptools.setup(
     license="Apache License, Version 2.0",
     url="https://github.com/openstack/python-novaclient",
     packages=["novaclient", "novaclient.v1_0", "novaclient.v1_1"],
+>>>>>>> 2019f5edf36f07152e75717f21875ad0adb0e0d6
     install_requires=requirements,
     tests_require=["nose", "mock"],
     test_suite="nose.collector",
@@ -49,6 +65,10 @@ setuptools.setup(
         "Programming Language :: Python"
     ],
     entry_points={
+<<<<<<< HEAD
+        "console_scripts": ["lnova = lnovaclient.shell:main"]
+=======
         "console_scripts": ["nova = novaclient.shell:main"]
+>>>>>>> 2019f5edf36f07152e75717f21875ad0adb0e0d6
     }
 )

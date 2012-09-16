@@ -1,6 +1,11 @@
 
+<<<<<<< HEAD
+from llnovaclient import exceptions
+from llnovaclient import utils
+=======
 from novaclient import exceptions
 from novaclient import utils
+>>>>>>> 2019f5edf36f07152e75717f21875ad0adb0e0d6
 from tests import utils as test_utils
 
 

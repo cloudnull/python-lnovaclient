@@ -25,7 +25,11 @@ From the Rackspace API guide:
 Classes
 -------
 
+<<<<<<< HEAD
+.. currentmodule:: llnovaclient
+=======
 .. currentmodule:: novaclient
+>>>>>>> 2019f5edf36f07152e75717f21875ad0adb0e0d6
 
 .. autoclass:: IPGroupManager
    :members: get, list, find, findall, create, delete

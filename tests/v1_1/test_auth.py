@@ -4,8 +4,13 @@ import mock
 import urlparse
 
 
+<<<<<<< HEAD
+from llnovaclient.v1_1 import client
+from llnovaclient import exceptions
+=======
 from novaclient.v1_1 import client
 from novaclient import exceptions
+>>>>>>> 2019f5edf36f07152e75717f21875ad0adb0e0d6
 from tests import utils
 
 
@@ -90,7 +95,11 @@ class AuthenticateAgainstKeystoneTests(utils.TestCase):
             {"headers": {'location':'http://127.0.0.1:5001'},
              "status": 305,
              "body": "Use proxy"},
+<<<<<<< HEAD
+            # Configured on admin port, llnova redirects to v2.0 port.
+=======
             # Configured on admin port, nova redirects to v2.0 port.
+>>>>>>> 2019f5edf36f07152e75717f21875ad0adb0e0d6
             # When trying to connect on it, keystone auth succeed by v1.0
             # protocol (through headers) but tokens are being returned in
             # body (looks like keystone bug). Leaved for compatibility.

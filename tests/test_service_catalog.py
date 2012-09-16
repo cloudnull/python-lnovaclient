@@ -1,5 +1,10 @@
+<<<<<<< HEAD
+from llnovaclient import exceptions
+from llnovaclient import service_catalog
+=======
 from novaclient import exceptions
 from novaclient import service_catalog
+>>>>>>> 2019f5edf36f07152e75717f21875ad0adb0e0d6
 from tests import utils
 
 
