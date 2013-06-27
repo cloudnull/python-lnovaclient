@@ -1,7 +1,5 @@
 import uuid
-
-import prettytable
-
+import lprettytable as prettytable
 from lnovaclient import exceptions
 
 

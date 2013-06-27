@@ -22,7 +22,7 @@ Command-line interface to the OpenStack Nova API.
 import argparse
 import httplib2
 import os
-import prettytable
+import lprettytable as prettytable
 import sys
 
 from lnovaclient import exceptions as exc

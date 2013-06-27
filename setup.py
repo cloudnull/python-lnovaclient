@@ -17,7 +17,9 @@ import setuptools
 import sys
 
 
-requirements = ["httplib2", "argparse", "prettytable==0.5"]
+requirements = ["httplib2",
+                "argparse",
+                "lprettytable"]
 if sys.version_info < (2, 6):
     requirements.append("simplejson")
 
